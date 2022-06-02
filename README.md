@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+# Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Links
 
-## Available Scripts
+- [github repo link](https://git.generalassemb.ly/devin/project-2-react/blob/master/readme.md)
+- [add your deployment link]()
 
-In the project directory, you can run:
+## Project Description
 
-### `npm start`
+Curator
+An art based search engine designed to find specific works, artists, and collections of art by emlpementing the use of multiple API's
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Art Itnstitute of Chicago Api
 
-### `npm test`
+#### API locations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Art Institute of Chicago Documentation] (https://api.artic.edu/docs/#quick-start)
 
-### `npm run build`
+- [Art Institute of Chicago API] (https://api.artic.edu/api/v1/artworks)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Every Artwork has an identifier number corresponding to that specific item. using that number we can append that number to the "iiif_url" create a source for our image.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Art Institute of Chicago iiif] (https://www.artic.edu/iiif/2)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### MoMA Api
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [MoMA API Docs] (https://api.moma.org/Help)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Louve Api
+ 
+- [Louve API Docs] ()
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Example
 
-## Learn More
+A search for Mucha 
+	
+```
+https://api.artic.edu/api/v1/artworks/search?q=Mucha
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Second Object by Mucha titles "Zodiaque (\"La Plume\")"
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+https://api.artic.edu/api/v1/artworks/111986?fields=id,title,image_id
+```
 
-### Code Splitting
+identifier number = 111986
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+iiif address + /full/843,/0/default.jpg
 
-### Analyzing the Bundle Size
+https://www.artic.edu/iiif/2/119dba14-acf2-cdcd-e9e6-b9cd38bc3aad/full/843,/0/default.jpg
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Curator aims to emplement multiple API's to create a vast network to search and locate art. Each API will have its own documentation, structure, and syntax and will use various methods for reaching the desired data according to each API.
 
-### Making a Progressive Web App
+## Wireframes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+- [Wireframe.cc](https://wireframe.cc/pro/edit/547761)
+- [add link to your react architecture]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+### MVP/PostMVP - 5min
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
-### `npm run build` fails to minify
+#### MVP EXAMPLE
+- Find and use external api
+- Render data on page 
+- Allow user to interact with the page	
+	- Functiioning imput form that will return items by search
+- Search functionality that will allow user to search and return related content
+	- Search will iterate through contents of API and return information from relevant fields
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+#### PostMVP EXAMPLE
+
+- Deploy additional API to increase ammount of searchable content and remove limitations of current API
+- Beautiful design and styling of Application
+
+## Components
+##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
+
+
+Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Also, define the the React components and the architectural design of your app.
+Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components. 
+
+| Component | Description | 
+| --- | :---: |  
+| App | This will house the various components and include React Router| 
+| Nav | This will contain path to Home and to user gallery | 
+| Footer | This will render the footer | 
+| Home (/) | This will render the *page* and contain the frame(display/image), the search(display/form) and the plaque(display/data) | 
+| ArtTile (Display/image) | A component that holds the img and shows the picture/pictures searched for | 
+| Form (Display/search) | This will be the form that pops up that takes in parameters for search | 
+| Plaque (Display/data) | A component that holds the data being returned from API | 
+
+
+Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
+
+| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Create React app and files for all components | H | 1 |  |  |
+| Basic Navbar & Footer | H | 2 |  |  |
+| Set up basic React routing | H | 2 |  |  |
+| Adding Form | H | 3|  |  |
+| Working with API | H | 3|  |  |
+| Make art API call, parse important data | H | 3 |  |  |
+| Display Images and selectable desired Data, change on submit | H | 3 |  |  |
+| Create logic to display "related content" | H | 3 |  |  |
+| Create Search form | H | 3 |  |  |
+| Adding additional API's  | M | 3 |  |  |
+| Working with addition API's | M | 3|  |  |
+| Make second art API call, parse important data | M | 3 |  |  |
+| Additional styling for Navbar, Footer, other pages | L | 3 |  |  |
+| Additional styling for Images and Data | L | 3 |  |  |
+| Total | H | 38hrs |  |  |
+
+## Additional Libraries
+ Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
+
+## Code Snippet
+
+Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code. 
+
+```
+function reverse(string) {
+	// here is the code to reverse a string of text
+}
+```
