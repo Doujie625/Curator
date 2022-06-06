@@ -1,4 +1,5 @@
 const ArtTile = (props) => {
+  console.log(props)
   if (props.art.data.image_id) {
     return (
       <div key={props.art.data.id} className="component_element">
