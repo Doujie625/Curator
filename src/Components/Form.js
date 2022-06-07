@@ -45,9 +45,16 @@ function Form(props) {
     })
   };
 
+  const addToGallery = (e) => {
+    const tempArray = [...props.gallery]
+    tempArray.push(e)
+    props.setGallery(tempArray)
+  }
+  
+
   const secondDisplay = secondFetch.map((item) => {
-    return <ArtTile art={item} />
-})
+    return <ArtTile art={item} addToGallery={addToGallery}/>
+  })
 
   return (
     <div className="Form">
