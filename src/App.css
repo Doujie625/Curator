@@ -43,5 +43,18 @@ a {
 .image {
 
 }
+.nav {
+  height: 50px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav_icons {
+  color: black;
+  margin: 50px;
+  height: 100%;
+}
+
 
 

@@ -10,9 +10,9 @@ function Nav(item) {
   return (
     <div className="App">
       <nav className='nav'>
-        <Link to="/"><span className='Curator'>Curate</span></Link>
-        <Link to="/gallery"><span className='Gallery'>My Gallery</span> </Link>
-        <Link to="/about"><span className='About'>About</span> </Link>
+        <Link to="/"><span className='Curator' id="nav_icons">Curate</span></Link>
+        <Link to="/gallery"><span className='Gallery' id="nav_icons">My Gallery</span> </Link>
+        <Link to="/about"><span className='About' id="nav_icons">About</span> </Link>
       </nav>
       <main>
       <Routes>
